@@ -20,6 +20,9 @@ public class Student extends Person {
         this.address = address;
     }
     public String getDepartment() { return department; }
+
+
+    
     public void setDepartment(String department) { this.department = department; }
 
     public int getSemester() { return semester; }

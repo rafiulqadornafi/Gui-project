@@ -13,23 +13,32 @@ import service.PortalManager;
 public class LoginGUI extends JFrame {
     private JTextField txtUsername;
     private JPasswordField txtPassword;
+
     private JComboBox<String> cmbRole;
     private JButton btnLogin;
+
     private JButton btnDemoStudentNafi;
+
+
     private JButton btnDemoStudentSadia;
     private JButton btnDemoFaculty;
     private JButton btnDemoAdmin;
+
     private PortalManager portalManager;
 
     public LoginGUI() {
         this.portalManager = new PortalManager();
+
         initComponents();
     }
     private void initComponents() {
+
         setTitle("AIUB Portal - American International University-Bangladesh");
         setSize(480, 680);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+
         setResizable(false);
 
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -37,13 +46,17 @@ public class LoginGUI extends JFrame {
 
        
         JPanel headerPanel = new JPanel();
+
         headerPanel.setLayout(new BoxLayout(headerPanel, BoxLayout.Y_AXIS));
         headerPanel.setBackground(new Color(13, 37, 71));
+
 
         headerPanel.setBorder(BorderFactory.createEmptyBorder(15, 20, 15, 20));
 
         ImageIcon originalIcon = new ImageIcon("aiub_logo.png");
+
         Image scaledImage = originalIcon.getImage().getScaledInstance(56, 56, Image.SCALE_SMOOTH);
+
         JLabel lblLogo = new JLabel(new ImageIcon(scaledImage));
         lblLogo.setAlignmentX(Component.CENTER_ALIGNMENT);
         headerPanel.add(lblLogo);
@@ -93,12 +106,18 @@ public class LoginGUI extends JFrame {
         lblUser.setFont(new Font("Segoe UI", Font.BOLD, 12));
         lblUser.setForeground(new Color(30, 41, 59));
         lblUser.setBounds(45, 75, 250, 20);
+
+
         formPanel.add(lblUser);
         txtUsername = new JTextField("26-64541-1");
         txtUsername.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+
         txtUsername.setBounds(45, 97, 375, 32);
         formPanel.add(txtUsername);
+
         JLabel lblPass = new JLabel("Password:");
+
+
         lblPass.setFont(new Font("Segoe UI", Font.BOLD, 12));
         lblPass.setForeground(new Color(30, 41, 59));
         lblPass.setBounds(45, 135, 200, 20);
@@ -133,8 +152,13 @@ public class LoginGUI extends JFrame {
         };
         btnLogin.setBackground(new Color(13, 37, 71));
         btnLogin.setForeground(Color.WHITE);
+
         btnLogin.setFont(new Font("Segoe UI", Font.BOLD, 13));
+
+
+
         btnLogin.setBounds(45, 202, 375, 36);
+
         btnLogin.setFocusPainted(false);
         btnLogin.setContentAreaFilled(false);
         btnLogin.setOpaque(true);
@@ -168,8 +192,6 @@ public class LoginGUI extends JFrame {
 
         btnDemoStudentNafi.setCursor(new Cursor(Cursor.HAND_CURSOR));
         formPanel.add(btnDemoStudentNafi);
-
-                                        //symbol ta google theke naoya hoyeche student er age man er symbol ta
         btnDemoStudentSadia = new JButton("👤 Student: Nowshin Sadia") {
             @Override
             protected void paintComponent(Graphics g) {
@@ -181,13 +203,15 @@ public class LoginGUI extends JFrame {
         btnDemoStudentSadia.setFont(new Font("Segoe UI", Font.BOLD, 11));
         btnDemoStudentSadia.setForeground(new Color(79, 70, 229));   
         btnDemoStudentSadia.setBounds(45, 305, 375, 30);
+
+
         btnDemoStudentSadia.setFocusPainted(false);
         btnDemoStudentSadia.setContentAreaFilled(false);
         btnDemoStudentSadia.setOpaque(true);
         btnDemoStudentSadia.setCursor(new Cursor(Cursor.HAND_CURSOR));
         formPanel.add(btnDemoStudentSadia);
 
-        //symbol ta google theke naoya hoyeche faculty er age man er symbol ta
+    
         btnDemoFaculty = new JButton("👨‍🏫 Faculty: Dr. M. M. Rahman") {
             @Override
             protected void paintComponent(Graphics g) {

@@ -195,6 +195,7 @@ public class AdminGUI extends JFrame {
 
         btnUpdate.setBackground(new Color(30, 64, 175));
         btnUpdate.setForeground(Color.WHITE);
+
         btnUpdate.setFont(new Font("Segoe UI", Font.BOLD, 11));
         btnUpdate.setFocusPainted(false);
 
@@ -205,6 +206,7 @@ public class AdminGUI extends JFrame {
             @Override
             protected void paintComponent(Graphics g) {
                 g.setColor(new Color(185, 28, 28));
+
                 g.fillRect(0, 0, getWidth(), getHeight());
                 super.paintComponent(g);
             }
@@ -213,6 +215,7 @@ public class AdminGUI extends JFrame {
         btnDelete.setForeground(Color.WHITE);
         btnDelete.setFont(new Font("Segoe UI", Font.BOLD, 11));
         btnDelete.setFocusPainted(false);
+
         btnDelete.setContentAreaFilled(false);
         btnDelete.setOpaque(true);
 
@@ -226,6 +229,8 @@ public class AdminGUI extends JFrame {
         };
         btnClear.setBackground(new Color(100, 116, 139));
         btnClear.setForeground(Color.WHITE);
+
+
         btnClear.setFont(new Font("Segoe UI", Font.BOLD, 11));
         btnClear.setFocusPainted(false);
         btnClear.setContentAreaFilled(false);
@@ -313,6 +318,7 @@ public class AdminGUI extends JFrame {
         JLabel lbl = new JLabel(lblText);
         lbl.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         JTextField txt = new JTextField();
+
         txt.setMaximumSize(new Dimension(Integer.MAX_VALUE, 24));
         p.add(lbl);
         p.add(txt);
@@ -321,12 +327,16 @@ public class AdminGUI extends JFrame {
     }
 
     private void populateStudentForm(Student s) {
+
+
         txtId.setText(s.getId());
         txtName.setText(s.getName());
         txtEmail.setText(s.getEmail());
+
         txtPhone.setText(s.getPhone());
         txtDept.setText(s.getDepartment());
         txtSemester.setText(String.valueOf(s.getSemester()));
+
         txtCgpa.setText(String.valueOf(s.getCgpa()));
         txtCredits.setText(String.valueOf(s.getCompletedCredits()));
         txtBlood.setText(s.getBloodGroup());
@@ -335,14 +345,19 @@ public class AdminGUI extends JFrame {
     }
 
     private void clearStudentForm() {
+
+
         txtId.setText("");
         txtName.setText("");
         txtEmail.setText("");
+
         txtPhone.setText("");
+
         txtDept.setText("");
         txtSemester.setText("");
         txtCgpa.setText("");
         txtCredits.setText("");
+
         txtBlood.setText("");
         txtAddress.setText("");
         txtId.setEditable(true);
@@ -355,10 +370,16 @@ public class AdminGUI extends JFrame {
             String name = txtName.getText().trim();
             String email = txtEmail.getText().trim();
             String phone = txtPhone.getText().trim();
+
             String dept = txtDept.getText().trim();
+
             int sem = Integer.parseInt(txtSemester.getText().trim());
+
+
+
             double cgpa = Double.parseDouble(txtCgpa.getText().trim());
             int credits = Integer.parseInt(txtCredits.getText().trim());
+
             String blood = txtBlood.getText().trim();
             String addr = txtAddress.getText().trim();
 
@@ -376,7 +397,7 @@ public class AdminGUI extends JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "Student ID already exists!", "Duplicate ID", JOptionPane.WARNING_MESSAGE);
             }
-        } catch (FormatException ex) {
+        } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Semester, CGPA, and Credits must be valid numbers!", "Input Error", JOptionPane.ERROR_MESSAGE);
         }
     }

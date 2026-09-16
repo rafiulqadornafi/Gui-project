@@ -9,6 +9,8 @@ public class Course {
     private String instructor;
 
     public Course(String courseCode, String courseTitle, int creditHours, String grade, double gradePoint, String instructor) {
+       
+       
         this.courseCode = courseCode;
         this.courseTitle = courseTitle;
         this.creditHours = creditHours;

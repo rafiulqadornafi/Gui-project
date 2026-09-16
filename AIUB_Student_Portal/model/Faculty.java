@@ -7,7 +7,10 @@ public class Faculty extends Person {
     public Faculty(String id, String name, String email, String phone, String password,
                    String designation, String department, String roomNumber) {
         super(id, name, email, phone, "FACULTY", password);
+
+        
         this.designation = designation;
+
         this.department = department;
         this.roomNumber = roomNumber;
     }

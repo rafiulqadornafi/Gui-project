@@ -10,16 +10,26 @@ import model.Notice;
 import model.Student;
 import service.PortalManager;
 public class FacultyGUI extends JFrame {
+    
     private PortalManager portalManager;
+
+
     private Faculty currentFaculty;
     private JTable tblStudents;
     private DefaultTableModel studentModel;
+
     private JTextField txtSelectedId;
+
     private JTextField txtSelectedName;
     private JTextField txtNewCgpa;
+
     private JComboBox<String> cmbGrade;
+
+
+
     private JButton btnUpdateGrade;
     private JTextField txtNoticeTitle;
+
     private JTextArea txtNoticeContent;
     private JButton btnPostNotice;
 
@@ -69,15 +79,20 @@ public class FacultyGUI extends JFrame {
         JPanel titlePanel = new JPanel();
         titlePanel.setLayout(new BoxLayout(titlePanel, BoxLayout.Y_AXIS));
         titlePanel.setOpaque(false);
+
         JLabel lblTitle = new JLabel("AIUB FACULTY PORTAL (TEACHER)");
         lblTitle.setFont(new Font("Segoe UI", Font.BOLD, 15));
         lblTitle.setForeground(Color.WHITE);
+
+
         JLabel lblSub = new JLabel(currentFaculty.getName() + " | " + currentFaculty.getDetailsSummary());
         lblSub.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         lblSub.setForeground(new Color(244, 208, 111));
+
         titlePanel.add(lblTitle);
         titlePanel.add(lblSub);
         brandPanel.add(titlePanel);
+
         banner.add(brandPanel, BorderLayout.WEST);
 
         
@@ -91,13 +106,18 @@ public class FacultyGUI extends JFrame {
         };
         btnLogout.setBackground(new Color(220, 38, 38));
         btnLogout.setForeground(Color.WHITE);
+
         btnLogout.setFont(new Font("Segoe UI", Font.BOLD, 11));
         btnLogout.setFocusPainted(false);
+
         btnLogout.setContentAreaFilled(false);
+
         btnLogout.setOpaque(true);
+
         btnLogout.setBorder(BorderFactory.createLineBorder(new Color(185, 28, 28)));
         btnLogout.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnLogout.addActionListener(e -> {
+
             new LoginGUI().setVisible(true);
             this.dispose();
         });
@@ -108,7 +128,7 @@ public class FacultyGUI extends JFrame {
         tabs.setFont(new Font("Segoe UI", Font.BOLD, 12));
 
         
- //symbol ta google theke naoya hoyeche eikhane student ar post er age 
+
         tabs.addTab("📊 Student Evaluation & CGPA Update", createGradePanel());
         tabs.addTab("📢 Post Announcement / Class Notice", createPostNoticePanel());
 
@@ -124,8 +144,10 @@ public class FacultyGUI extends JFrame {
 
         JPanel form = new JPanel();
         form.setLayout(new BoxLayout(form, BoxLayout.Y_AXIS));
+
         form.setPreferredSize(new Dimension(320, 500));
         form.setBackground(new Color(248, 250, 252));
+
         form.setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createTitledBorder("Student CGPA & Grade Evaluation"),
             BorderFactory.createEmptyBorder(10, 10, 10, 10)
@@ -133,6 +155,7 @@ public class FacultyGUI extends JFrame {
 
         txtSelectedId = addFormField(form, "Selected Student ID:");
         txtSelectedId.setEditable(false);
+
         txtSelectedName = addFormField(form, "Student Name:");
         txtSelectedName.setEditable(false);
 
@@ -158,8 +181,10 @@ public class FacultyGUI extends JFrame {
         btnUpdateGrade.setForeground(Color.WHITE);
         btnUpdateGrade.setFont(new Font("Segoe UI", Font.BOLD, 12));
         btnUpdateGrade.setFocusPainted(false);
+
         btnUpdateGrade.setContentAreaFilled(false);
         btnUpdateGrade.setOpaque(true);
+
         btnUpdateGrade.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnUpdateGrade.addActionListener(e -> handleUpdateGrade());
         form.add(btnUpdateGrade);
@@ -251,17 +276,25 @@ public class FacultyGUI extends JFrame {
         btnPostNotice = new JButton("Publish Notice to AIUB Bulletin") {
             @Override
             protected void paintComponent(Graphics g) {
+
+
                 g.setColor(new Color(22, 101, 52));
                 g.fillRect(0, 0, getWidth(), getHeight());
                 super.paintComponent(g);
+
+
             }
         };
         btnPostNotice.setBackground(new Color(22, 101, 52));
+
         btnPostNotice.setForeground(Color.WHITE);
         btnPostNotice.setFont(new Font("Segoe UI", Font.BOLD, 12));
         btnPostNotice.setFocusPainted(false);
+
         btnPostNotice.setContentAreaFilled(false);
         btnPostNotice.setOpaque(true);
+
+
         btnPostNotice.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btnPostNotice.addActionListener(e -> {
             String title = txtNoticeTitle.getText().trim();
@@ -289,6 +322,7 @@ public class FacultyGUI extends JFrame {
         form.add(lblT);
         form.add(txtNoticeTitle);
         form.add(lblC);
+
         form.add(new JScrollPane(txtNoticeContent));
         form.add(Box.createRigidArea(new Dimension(0, 5)));
         form.add(btnPostNotice);
@@ -297,6 +331,8 @@ public class FacultyGUI extends JFrame {
         return p;
     }
 
+
+
     private void loadStudents() {
         studentModel.setRowCount(0);
         for (Student s : portalManager.getAllStudents()) {
@@ -304,6 +340,7 @@ public class FacultyGUI extends JFrame {
                 s.getId(),
                 s.getName(),
                 s.getDepartment(),
+
                 "Semester " + s.getSemester(),
                 String.format("%.2f", s.getCgpa()),
                 s.getCompletedCredits()

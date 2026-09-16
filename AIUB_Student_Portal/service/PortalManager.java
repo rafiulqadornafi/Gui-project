@@ -29,7 +29,13 @@ public class PortalManager {
     public PortalManager() {
         this.students = new ArrayList<>();
         this.facultyMembers = new ArrayList<>();
+
         this.administrators = new ArrayList<>();
+
+
+
+
+
         this.defaultCourses = new ArrayList<>();
         this.notices = new ArrayList<>();
 
@@ -120,6 +126,7 @@ public class PortalManager {
         String q = query.toLowerCase().trim();
         List<Student> results = new ArrayList<>();
         for (Student s : students) {
+
             if (s.getId().toLowerCase().contains(q) ||
                 s.getName().toLowerCase().contains(q) ||
                 s.getDepartment().toLowerCase().contains(q)) {
@@ -250,15 +257,18 @@ public class PortalManager {
     }
     public void loadFacultyFromFile() {
         facultyMembers.clear();
+        
         File file = new File(facultyFilePath);
         if (!file.exists() || file.length() == 0) {
             seedDefaultFaculty();
+
             saveFacultyToFile();
             return;
         }
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
+
                 line = line.trim();
                 if (line.isEmpty() || line.startsWith("#")) continue;
                 Faculty f = Faculty.fromFileString(line);

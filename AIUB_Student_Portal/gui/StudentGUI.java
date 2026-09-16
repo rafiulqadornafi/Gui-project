@@ -9,7 +9,11 @@ import model.Student;
 import service.PortalManager;
 
 public class StudentGUI extends JFrame {
+
+
+
     private PortalManager portalManager;
+
     private Student currentStudent;
 
     public StudentGUI(PortalManager portalManager, Student student) {
@@ -19,8 +23,10 @@ public class StudentGUI extends JFrame {
     }
 
     private void initComponents() {
+
         setTitle("AIUB Student Portal - " + currentStudent.getName() + " (" + currentStudent.getId() + ")");
         setSize(980, 700);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -97,9 +103,10 @@ public class StudentGUI extends JFrame {
 
         JTabbedPane tabs = new JTabbedPane();
         tabs.setFont(new Font("Segoe UI", Font.BOLD, 12));
-                        //symbol gulo google theke niyechi project ta sundor korar jonno
+                       
         tabs.addTab("👤 My Academic Profile & CGPA", createProfileTab());
         tabs.addTab("📚 Registered Courses & Grades", createCoursesTab());
+
         tabs.addTab("📢 AIUB Notice Bulletin", createNoticeTab());
         tabs.addTab("🪪 Digital AIUB Student ID Card", createIdCardTab());
 
@@ -180,8 +187,12 @@ public class StudentGUI extends JFrame {
         l.setFont(new Font("Segoe UI", Font.BOLD, 12));
         l.setForeground(new Color(71, 85, 105));
         JLabel v = new JLabel(val);
+
+
         v.setFont(new Font("Segoe UI", Font.PLAIN, 13));
         v.setForeground(new Color(15, 23, 42));
+
+        
         p.add(l);
         p.add(v);
     }
@@ -189,6 +200,8 @@ public class StudentGUI extends JFrame {
     private JPanel createCoursesTab() {
         JPanel p = new JPanel(new BorderLayout(15, 15));
         p.setBackground(Color.WHITE);
+
+
         p.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         String[] cols = {"Course Code", "Course Title", "Credits", "Letter Grade", "Grade Point", "Faculty Instructor"};
@@ -200,8 +213,10 @@ public class StudentGUI extends JFrame {
             model.addRow(new Object[]{
                 c.getCourseCode(),
                 c.getCourseTitle(),
+
                 c.getCreditHours(),
                 c.getGrade(),
+
                 String.format("%.2f", c.getGradePoint()),
                 c.getInstructor()
             });
@@ -210,6 +225,7 @@ public class StudentGUI extends JFrame {
         JTable table = new JTable(model);
         table.setRowHeight(28);
         table.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+
         table.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
         table.getTableHeader().setBackground(new Color(241, 245, 249));
 
@@ -219,6 +235,8 @@ public class StudentGUI extends JFrame {
         bottom.setBackground(new Color(248, 250, 252));
 
         bottom.setBorder(BorderFactory.createLineBorder(new Color(226, 232, 240)));
+
+
         JLabel lblSummary = new JLabel("Enrolled Credits: 15.0 | Term GPA: 3.70 | Cumulative CGPA: " + String.format("%.2f", currentStudent.getCgpa()));
         lblSummary.setFont(new Font("Segoe UI", Font.BOLD, 13));
         lblSummary.setForeground(new Color(13, 37, 71));
@@ -233,6 +251,8 @@ public class StudentGUI extends JFrame {
     private JPanel createNoticeTab() {
         JPanel p = new JPanel(new BorderLayout(15, 15));
         p.setBackground(Color.WHITE);
+
+
         p.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         String[] cols = {"Notice ID", "Date", "Category", "Title", "Published By"};
@@ -289,6 +309,8 @@ public class StudentGUI extends JFrame {
         
         JLabel lblUniv = new JLabel("<html><b>AMERICAN INTERNATIONAL UNIVERSITY-BANGLADESH</b><br><small>STUDENT IDENTIFICATION CARD</small></html>");
         lblUniv.setForeground(new Color(13, 37, 71));
+
+
         cardHead.add(cardLogoLabel, BorderLayout.WEST);
         cardHead.add(lblUniv, BorderLayout.CENTER);
         card.add(cardHead, BorderLayout.NORTH);
