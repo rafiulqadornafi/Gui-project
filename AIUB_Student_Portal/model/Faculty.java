@@ -16,15 +16,13 @@ public class Faculty extends Person {
    
    
     public void setDesignation(String designation) { this.designation = designation; }
-
-   
     public String getDepartment() { return department; }
+    
     public void setDepartment(String department) { this.department = department; }
 
     public String getRoomNumber() { return roomNumber; }
     
     public void setRoomNumber(String roomNumber) { this.roomNumber = roomNumber; }
-
     @Override
     public String getRoleTitle() {
         return designation + ", Dept. of " + department;

@@ -97,7 +97,7 @@ public class StudentGUI extends JFrame {
 
         JTabbedPane tabs = new JTabbedPane();
         tabs.setFont(new Font("Segoe UI", Font.BOLD, 12));
-
+                        //symbol gulo google theke niyechi project ta sundor korar jonno
         tabs.addTab("👤 My Academic Profile & CGPA", createProfileTab());
         tabs.addTab("📚 Registered Courses & Grades", createCoursesTab());
         tabs.addTab("📢 AIUB Notice Bulletin", createNoticeTab());
@@ -108,11 +108,14 @@ public class StudentGUI extends JFrame {
         JPanel footer = new JPanel(new BorderLayout());
         footer.setBackground(new Color(241, 245, 249));
         footer.setBorder(BorderFactory.createEmptyBorder(6, 20, 6, 20));
+        
         JLabel lblFooter = new JLabel("AIUB Permanent Campus: 408/1, Kuratoli, Khilkhet, Dhaka 1229, Bangladesh | Connected to students.txt");
         lblFooter.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         lblFooter.setForeground(new Color(100, 116, 139));
         footer.add(lblFooter, BorderLayout.WEST);
+
         root.add(footer, BorderLayout.SOUTH);
+
 
         add(root);
     }
@@ -129,7 +132,6 @@ public class StudentGUI extends JFrame {
         statRow.add(createMetricBox("Completed Credits", currentStudent.getCompletedCredits() + " Credits", new Color(139, 92, 246)));
         statRow.add(createMetricBox("Academic Standing", currentStudent.getCgpa() >= 3.75 ? "Dean's Honor Roll" : "Good Standing", new Color(234, 88, 12)));
         p.add(statRow, BorderLayout.NORTH);
-
         JPanel detailsCard = new JPanel(new GridLayout(7, 2, 12, 12));
         detailsCard.setBackground(new Color(248, 250, 252));
         detailsCard.setBorder(BorderFactory.createCompoundBorder(
@@ -151,7 +153,6 @@ public class StudentGUI extends JFrame {
         p.add(detailsCard, BorderLayout.CENTER);
         return p;
     }
-
     private JPanel createMetricBox(String title, String value, Color accent) {
         JPanel box = new JPanel();
         box.setLayout(new BoxLayout(box, BoxLayout.Y_AXIS));
@@ -195,7 +196,6 @@ public class StudentGUI extends JFrame {
             @Override
             public boolean isCellEditable(int row, int col) { return false; }
         };
-
         for (Course c : portalManager.getDefaultCourses()) {
             model.addRow(new Object[]{
                 c.getCourseCode(),
@@ -217,10 +217,13 @@ public class StudentGUI extends JFrame {
 
         JPanel bottom = new JPanel(new FlowLayout(FlowLayout.RIGHT, 20, 10));
         bottom.setBackground(new Color(248, 250, 252));
+
         bottom.setBorder(BorderFactory.createLineBorder(new Color(226, 232, 240)));
         JLabel lblSummary = new JLabel("Enrolled Credits: 15.0 | Term GPA: 3.70 | Cumulative CGPA: " + String.format("%.2f", currentStudent.getCgpa()));
         lblSummary.setFont(new Font("Segoe UI", Font.BOLD, 13));
         lblSummary.setForeground(new Color(13, 37, 71));
+
+
         bottom.add(lblSummary);
         p.add(bottom, BorderLayout.SOUTH);
 

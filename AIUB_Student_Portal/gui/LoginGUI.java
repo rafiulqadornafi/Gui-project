@@ -8,6 +8,8 @@ import model.Person;
 import model.Student;
 import service.PortalManager;
 
+
+
 public class LoginGUI extends JFrame {
     private JTextField txtUsername;
     private JPasswordField txtPassword;
@@ -23,7 +25,6 @@ public class LoginGUI extends JFrame {
         this.portalManager = new PortalManager();
         initComponents();
     }
-
     private void initComponents() {
         setTitle("AIUB Portal - American International University-Bangladesh");
         setSize(480, 680);
@@ -38,6 +39,7 @@ public class LoginGUI extends JFrame {
         JPanel headerPanel = new JPanel();
         headerPanel.setLayout(new BoxLayout(headerPanel, BoxLayout.Y_AXIS));
         headerPanel.setBackground(new Color(13, 37, 71));
+
         headerPanel.setBorder(BorderFactory.createEmptyBorder(15, 20, 15, 20));
 
         ImageIcon originalIcon = new ImageIcon("aiub_logo.png");
@@ -51,10 +53,12 @@ public class LoginGUI extends JFrame {
         JLabel lblUnivName = new JLabel("AMERICAN INTERNATIONAL UNIVERSITY-BANGLADESH");
         lblUnivName.setForeground(Color.WHITE);
         lblUnivName.setFont(new Font("Segoe UI", Font.BOLD, 13));
+
         lblUnivName.setAlignmentX(Component.CENTER_ALIGNMENT);
         headerPanel.add(lblUnivName);
 
         headerPanel.add(Box.createRigidArea(new Dimension(0, 3)));
+
 
         JLabel lblMotto = new JLabel("— where leaders are created —");
         lblMotto.setForeground(new Color(244, 208, 111));
@@ -70,7 +74,9 @@ public class LoginGUI extends JFrame {
 
         JLabel lblRole = new JLabel("Select Portal Role:");
         lblRole.setFont(new Font("Segoe UI", Font.BOLD, 12));
+
         lblRole.setForeground(new Color(30, 41, 59));
+
         lblRole.setBounds(45, 15, 200, 20);
         formPanel.add(lblRole);
 
@@ -81,17 +87,17 @@ public class LoginGUI extends JFrame {
         cmbRole.setBackground(Color.WHITE);
         formPanel.add(cmbRole);
 
+
+
         JLabel lblUser = new JLabel("AIUB Identification ID / Email:");
         lblUser.setFont(new Font("Segoe UI", Font.BOLD, 12));
         lblUser.setForeground(new Color(30, 41, 59));
         lblUser.setBounds(45, 75, 250, 20);
         formPanel.add(lblUser);
-
         txtUsername = new JTextField("26-64541-1");
         txtUsername.setFont(new Font("Segoe UI", Font.PLAIN, 13));
         txtUsername.setBounds(45, 97, 375, 32);
         formPanel.add(txtUsername);
-
         JLabel lblPass = new JLabel("Password:");
         lblPass.setFont(new Font("Segoe UI", Font.BOLD, 12));
         lblPass.setForeground(new Color(30, 41, 59));
@@ -141,13 +147,13 @@ public class LoginGUI extends JFrame {
         lblDemo.setForeground(new Color(15, 23, 42)); 
         lblDemo.setBounds(45, 248, 350, 18);
         formPanel.add(lblDemo);
-
-        
+                                       //symbol ta google theke naoya hoyeche student er age man er symbol ta
         btnDemoStudentNafi = new JButton("👤 Student: Rafiul Qador Nafi") {
             @Override
             protected void paintComponent(Graphics g) {
                 g.setColor(new Color(219, 234, 254));
                 g.fillRect(0, 0, getWidth(), getHeight());
+                
                 super.paintComponent(g);
             }
         };
@@ -155,12 +161,15 @@ public class LoginGUI extends JFrame {
         btnDemoStudentNafi.setForeground(new Color(30, 64, 175));   
         btnDemoStudentNafi.setBounds(45, 270, 375, 30);
         btnDemoStudentNafi.setFocusPainted(false);
+
         btnDemoStudentNafi.setContentAreaFilled(false);
+
         btnDemoStudentNafi.setOpaque(true);
+
         btnDemoStudentNafi.setCursor(new Cursor(Cursor.HAND_CURSOR));
         formPanel.add(btnDemoStudentNafi);
 
-        
+                                        //symbol ta google theke naoya hoyeche student er age man er symbol ta
         btnDemoStudentSadia = new JButton("👤 Student: Nowshin Sadia") {
             @Override
             protected void paintComponent(Graphics g) {
@@ -178,7 +187,7 @@ public class LoginGUI extends JFrame {
         btnDemoStudentSadia.setCursor(new Cursor(Cursor.HAND_CURSOR));
         formPanel.add(btnDemoStudentSadia);
 
-        
+        //symbol ta google theke naoya hoyeche faculty er age man er symbol ta
         btnDemoFaculty = new JButton("👨‍🏫 Faculty: Dr. M. M. Rahman") {
             @Override
             protected void paintComponent(Graphics g) {
@@ -215,8 +224,6 @@ public class LoginGUI extends JFrame {
         formPanel.add(btnDemoAdmin);
 
         mainPanel.add(formPanel, BorderLayout.CENTER);
-
-        // Action Listeners
         btnLogin.addActionListener(e -> performLogin());
 
         btnDemoStudentNafi.addActionListener(e -> {

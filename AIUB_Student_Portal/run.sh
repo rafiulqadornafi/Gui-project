@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+
 echo "========================================================================="
 echo "  AMERICAN INTERNATIONAL UNIVERSITY-BANGLADESH (AIUB)"
 echo "  Student & Faculty Portal System - Pure Java Swing Application"

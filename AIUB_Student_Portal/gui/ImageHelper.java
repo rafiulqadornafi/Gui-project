@@ -5,13 +5,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.swing.*;
 public class ImageHelper {
-
-    // AIUB Brand Colors
-    public static final Color AIUB_BLUE = new Color(13, 37, 71);    // #0D2547 Deep AIUB Navy
-    public static final Color AIUB_GOLD = new Color(244, 208, 111); // #F4D06F Golden Yellow
-    public static final Color AIUB_CYAN = new Color(74, 144, 226);  // Accent Blue
-
-    //  AIUB Logo (size: width x height)
+    public static final Color AIUB_BLUE = new Color(13, 37, 71);  
+    public static final Color AIUB_GOLD = new Color(244, 208, 111);
+    public static final Color AIUB_CYAN = new Color(74, 144, 226);
     public static ImageIcon getAIUBLogo(int width, int height) {
         String[] possiblePaths = {
             "assets/logo.png",

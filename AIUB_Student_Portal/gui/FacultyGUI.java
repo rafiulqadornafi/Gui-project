@@ -12,7 +12,6 @@ import service.PortalManager;
 public class FacultyGUI extends JFrame {
     private PortalManager portalManager;
     private Faculty currentFaculty;
-
     private JTable tblStudents;
     private DefaultTableModel studentModel;
     private JTextField txtSelectedId;
@@ -20,7 +19,6 @@ public class FacultyGUI extends JFrame {
     private JTextField txtNewCgpa;
     private JComboBox<String> cmbGrade;
     private JButton btnUpdateGrade;
-
     private JTextField txtNoticeTitle;
     private JTextArea txtNoticeContent;
     private JButton btnPostNotice;
@@ -31,6 +29,8 @@ public class FacultyGUI extends JFrame {
         initComponents();
         loadStudents();
     }
+
+
 
     private void initComponents() {
         setTitle("AIUB Faculty Portal - " + currentFaculty.getName() + " (" + currentFaculty.getDesignation() + ")");
@@ -43,12 +43,11 @@ public class FacultyGUI extends JFrame {
         JPanel banner = new JPanel(new BorderLayout());
         banner.setBackground(new Color(13, 37, 71));
         banner.setPreferredSize(new Dimension(980, 75));
+
         banner.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
 
         JPanel brandPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 12, 0));
         brandPanel.setOpaque(false);
-        
-        // --- লোগো সেটআপ (aiub_logo3.png) ---
         ImageIcon logoIcon = null;
         try {
             ImageIcon originalIcon = new ImageIcon("aiub_logo3.png");
@@ -81,7 +80,7 @@ public class FacultyGUI extends JFrame {
         brandPanel.add(titlePanel);
         banner.add(brandPanel, BorderLayout.WEST);
 
-        // Logout Button
+        
         JButton btnLogout = new JButton("Logout") {
             @Override
             protected void paintComponent(Graphics g) {
@@ -108,6 +107,8 @@ public class FacultyGUI extends JFrame {
         JTabbedPane tabs = new JTabbedPane();
         tabs.setFont(new Font("Segoe UI", Font.BOLD, 12));
 
+        
+ //symbol ta google theke naoya hoyeche eikhane student ar post er age 
         tabs.addTab("📊 Student Evaluation & CGPA Update", createGradePanel());
         tabs.addTab("📢 Post Announcement / Class Notice", createPostNoticePanel());
 

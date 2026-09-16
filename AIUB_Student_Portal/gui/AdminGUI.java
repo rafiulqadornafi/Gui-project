@@ -79,8 +79,11 @@ public class AdminGUI extends JFrame {
             lblLogo.setForeground(Color.WHITE);
             lblLogo.setFont(new Font("Segoe UI", Font.BOLD, 14));
         }
+
+
         brand.add(lblLogo);
 
+        
         JPanel titles = new JPanel();
         titles.setLayout(new BoxLayout(titles, BoxLayout.Y_AXIS));
         titles.setOpaque(false);
@@ -117,10 +120,9 @@ public class AdminGUI extends JFrame {
         });
         banner.add(btnLogout, BorderLayout.EAST);
         root.add(banner, BorderLayout.NORTH);
-
         JTabbedPane tabs = new JTabbedPane();
         tabs.setFont(new Font("Segoe UI", Font.BOLD, 12));
-
+                   //eije symbol gula google theke nisi
         tabs.addTab("👥 Student Records Management (CRUD)", createStudentCrudTab());
         tabs.addTab("📢 University Notice Board Manager", createNoticeCrudTab());
 
@@ -152,9 +154,11 @@ public class AdminGUI extends JFrame {
         txtName = addField(form, "Full Name:");
         txtEmail = addField(form, "Official Email:");
         txtPhone = addField(form, "Contact Phone:");
+
         txtDept = addField(form, "Department (e.g. CSE):");
         txtSemester = addField(form, "Semester (1-8):");
         txtCgpa = addField(form, "CGPA (0.00 - 4.00):");
+
         txtCredits = addField(form, "Completed Credits:");
         txtBlood = addField(form, "Blood Group (e.g. A+):");
         txtAddress = addField(form, "Residential Address:");
@@ -171,6 +175,7 @@ public class AdminGUI extends JFrame {
                 super.paintComponent(g);
             }
         };
+
         btnInsert.setBackground(new Color(22, 101, 52));
         btnInsert.setForeground(Color.WHITE);
         btnInsert.setFont(new Font("Segoe UI", Font.BOLD, 11));
@@ -186,10 +191,13 @@ public class AdminGUI extends JFrame {
                 super.paintComponent(g);
             }
         };
+
+
         btnUpdate.setBackground(new Color(30, 64, 175));
         btnUpdate.setForeground(Color.WHITE);
         btnUpdate.setFont(new Font("Segoe UI", Font.BOLD, 11));
         btnUpdate.setFocusPainted(false);
+
         btnUpdate.setContentAreaFilled(false);
         btnUpdate.setOpaque(true);
 
@@ -226,6 +234,7 @@ public class AdminGUI extends JFrame {
         btnRow.add(btnInsert);
         btnRow.add(btnUpdate);
         btnRow.add(btnDelete);
+
         btnRow.add(btnClear);
         form.add(btnRow);
 
@@ -256,7 +265,6 @@ public class AdminGUI extends JFrame {
         searchBar.add(txtSearch, BorderLayout.CENTER);
         searchBar.add(btnSearch, BorderLayout.EAST);
         right.add(searchBar, BorderLayout.NORTH);
-
         String[] cols = {"ID", "Full Name", "Department", "Sem", "CGPA", "Credits", "Phone"};
         studentModel = new DefaultTableModel(cols, 0) {
             @Override
@@ -264,6 +272,8 @@ public class AdminGUI extends JFrame {
         };
         tblStudents = new JTable(studentModel);
         tblStudents.setRowHeight(24);
+
+
         tblStudents.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         tblStudents.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 11));
 
@@ -366,7 +376,7 @@ public class AdminGUI extends JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "Student ID already exists!", "Duplicate ID", JOptionPane.WARNING_MESSAGE);
             }
-        } catch (NumberFormatException ex) {
+        } catch (FormatException ex) {
             JOptionPane.showMessageDialog(this, "Semester, CGPA, and Credits must be valid numbers!", "Input Error", JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -380,13 +390,17 @@ public class AdminGUI extends JFrame {
             }
 
             String name = txtName.getText().trim();
+
+
             String email = txtEmail.getText().trim();
             String phone = txtPhone.getText().trim();
+
             String dept = txtDept.getText().trim();
             int sem = Integer.parseInt(txtSemester.getText().trim());
             double cgpa = Double.parseDouble(txtCgpa.getText().trim());
             int credits = Integer.parseInt(txtCredits.getText().trim());
             String blood = txtBlood.getText().trim();
+
             String addr = txtAddress.getText().trim();
 
             Student updated = new Student(id, name, email, phone, "pass123", dept, sem, cgpa, credits, blood, addr);
@@ -396,7 +410,8 @@ public class AdminGUI extends JFrame {
                 loadStudentsToTable();
                 clearStudentForm();
             }
-        } catch (NumberFormatException ex) {
+        } 
+        catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "Invalid number format for Semester, CGPA, or Credits!", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
@@ -489,6 +504,7 @@ public class AdminGUI extends JFrame {
         form.add(new JLabel("Category (Exam / Academic / Event):"));
         form.add(txtNoticeCategory);
         form.add(btnAddN);
+
         p.add(form, BorderLayout.WEST);
         
 

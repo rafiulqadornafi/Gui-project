@@ -1,15 +1,12 @@
 package model;
 
-public abstract class Person {
-    // Encapsulation: Private member variables
+public abstract class Person{
     private String id;
     private String name;
     private String email;
     private String phone;
     private String role; 
     private String password;
-
-    // Parameterized Constructor
     public Person(String id, String name, String email, String phone, String role, String password) {
         this.id = id;
         this.name = name;
@@ -25,7 +22,6 @@ public abstract class Person {
         }
         this.id = id.trim();
     }
-
     public String getName() { return name; }
     public void setName(String name) {
         if (name == null || name.trim().isEmpty()) {
@@ -37,10 +33,12 @@ public abstract class Person {
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
+
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
 
     public String getRole() { return role; }
+
     public void setRole(String role) { this.role = role; }
 
     public String getPassword() { return password; }
@@ -48,7 +46,6 @@ public abstract class Person {
     public abstract String getRoleTitle();
     public abstract String getDetailsSummary();
     public abstract String toFileString();
-
     @Override
     public String toString() {
         return "[" + role + "] " + id + " - " + name + " (" + email + ")";

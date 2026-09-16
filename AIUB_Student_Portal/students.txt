@@ -1,3 +1,4 @@
 # AIUB STUDENT PORTAL - STUDENTS DATABASE
 26-64541-1;Rafiul Qador Nafi;rafiul.nafi@student.aiub.edu;+880 1711-223344;pass123;Computer Science & Engineering (CSE);5;3.85;68;A+;Mirpur, Dhaka
-26-64470-1;Nowshin Sadia;nowshin.sadia@student.aiub.edu;+880 1811-556677;pass123;Computer Science & Engineering (CSE);5;3.8;68;A+;Mirpur, Dhaka
+26-64470-1;Nowshin Sadia M;nowshin.sadia@student.aiub.edu;+880 1811-556677;pass123;Computer Science & Engineering (CSE);5;3.8;68;A+;Mirpur, Dhaka
+222;KKK;raww;00111;pass123;cse;2;4.0;97;0+;Dhaka

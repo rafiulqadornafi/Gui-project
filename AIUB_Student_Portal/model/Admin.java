@@ -18,15 +18,14 @@ public class Admin extends Person {
     public void setAccessLevel(String accessLevel) { this.accessLevel = accessLevel; }
 
     @Override
+    
     public String getRoleTitle() {
         return "System Administrator (AIUB Registrar Office)";
     }
-
     @Override
     public String getDetailsSummary() {
         return "AIUB Admin | Office: " + officeRoom + " | Access: " + accessLevel;
     }
-
     @Override
     public String toFileString() {
         return getId() + ";" + getName() + ";" + getEmail() + ";" + getPhone() + ";" + getPassword() + ";"

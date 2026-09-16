@@ -18,6 +18,9 @@ public class PortalManager {
 
     private final String studentFilePath = "students.txt";
 
+   
+   
+   
     private final String facultyFilePath = "faculty.txt";
 
 
@@ -64,11 +67,9 @@ public class PortalManager {
         saveStudentsToFile();
         return true;
     }
-
     public List<Student> getAllStudents() {
         return new ArrayList<>(students);
     }
-
     public Student getStudentById(String id) {
         if (id == null) return null;
         for (Student s : students) {
@@ -78,7 +79,6 @@ public class PortalManager {
         }
         return null;
     }
-
     public boolean updateStudent(Student updated) {
         if (updated == null) return false;
         for (int i = 0; i < students.size(); i++) {
@@ -90,7 +90,6 @@ public class PortalManager {
         }
         return false;
     }
-
     public boolean updateStudentCgpa(String studentId, double newCgpa) {
         Student s = getStudentById(studentId);
         if (s != null) {
@@ -101,6 +100,7 @@ public class PortalManager {
         return false;
     }
 
+    
     public boolean deleteStudent(String id) {
         if (id == null) return false;
         for (int i = 0; i < students.size(); i++) {
@@ -132,7 +132,6 @@ public class PortalManager {
     public List<Faculty> getAllFaculty() {
         return new ArrayList<>(facultyMembers);
     }
-
     public Faculty getFacultyById(String id) {
         for (Faculty f : facultyMembers) {
             if (f.getId().equalsIgnoreCase(id.trim())) {
@@ -141,7 +140,6 @@ public class PortalManager {
         }
         return null;
     }
-
     public boolean addFaculty(Faculty faculty) {
         if (faculty == null) return false;
         for (Faculty f : facultyMembers) {
@@ -173,11 +171,9 @@ public class PortalManager {
         }
         return false;
     }
-
     public List<Course> getDefaultCourses() {
         return defaultCourses;
     }
-
     public Person authenticate(String idOrEmail, String password) {
         if (idOrEmail == null || password == null) return null;
         String target = idOrEmail.trim();
@@ -207,12 +203,12 @@ public class PortalManager {
         return null;
     }
 
+    
     public void loadAllDataFromFiles() {
         loadStudentsFromFile();
         loadFacultyFromFile();
         loadNoticesFromFile();
     }
-
     public void loadStudentsFromFile() {
         students.clear();
         File file = new File(studentFilePath);
@@ -221,7 +217,6 @@ public class PortalManager {
             saveStudentsToFile();
             return;
         }
-
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -241,6 +236,8 @@ public class PortalManager {
         }
     }
 
+    
+    
     public void saveStudentsToFile() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(studentFilePath))) {
             writer.println("# AIUB STUDENT PORTAL - STUDENTS DATABASE");
@@ -251,7 +248,6 @@ public class PortalManager {
             System.err.println("Error saving students.txt: " + e.getMessage());
         }
     }
-
     public void loadFacultyFromFile() {
         facultyMembers.clear();
         File file = new File(facultyFilePath);
@@ -260,7 +256,6 @@ public class PortalManager {
             saveFacultyToFile();
             return;
         }
-
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -299,7 +294,6 @@ public class PortalManager {
             saveNoticesToFile();
             return;
         }
-
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -359,7 +353,6 @@ public class PortalManager {
             "Mirpur, Dhaka"
         ));
     }
-
     private void seedDefaultFaculty() {
         facultyMembers.add(new Faculty(
             "F-1002",
@@ -372,7 +365,6 @@ public class PortalManager {
             "Room D-402, Building D"
         ));
     }
-
     private void seedDefaultNotices() {
         notices.add(new Notice(
             "NOT-01",
