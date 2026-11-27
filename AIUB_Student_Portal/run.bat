@@ -8,7 +8,7 @@ echo =========================================================================
 if not exist bin mkdir bin
 
 REM Compiling java files using forward slashes to avoid wildcard errors
-javac -d bin model/*.java service/*.java gui/*.java Start.java
+javac -encoding UTF-8 -d bin model/*.java service/*.java gui/*.java Start.java
 
 if %errorlevel% neq 0 (
     echo [ERROR] Compilation failed! Please ensure JDK is installed and in PATH.
